@@ -13,7 +13,6 @@
 */
 
 function calcularMedia() {
-  
   const nota1 = parseFloat(document.getElementById("nota1").value);
   const nota2 = parseFloat(document.getElementById("nota2").value);
   const nota3 = parseFloat(document.getElementById("nota3").value);
@@ -21,14 +20,25 @@ function calcularMedia() {
 
   let mensagem = "";
 
+  const media = (nota1 + nota2 + nota3 + nota4) / 4;
+
+  if (media === 0) {
+    mensagem = "Infelizmente você zerou a prova =(";
+  } else if (media >= 0.1 && media <= 3) {
+    mensagem = `Carambra, deu ruim, você obteve média ${media}! Estude mais e tente novamente!`;
+  } else if (media >= 3.1 && media <= 5.9) {
+    mensagem = `Você obteve média ${media}! Falta pouco para a média.`;
+  } else if (media >= 6 && media <= 7) {
+    mensagem = `Você está na média com ${media}`;
+  } else if (media >= 7.1 && media <= 9.9) {
+    mensagem = `Notão! Sua média é ${media}`;
+  } else {
+    mensagem = `Hoje é seu aniversário? Porque você está de parabéns! ${media} de média `;
+  }
 
   // evite mexer na linha de código abaixo!
   document.getElementById("situacaoAluno").innerHTML = mensagem;
 }
-
-
-
-
 
 // EXPLICACOES ADICIONAIS
 /* 
@@ -67,4 +77,4 @@ onclick é um atributo HTML que define o que deve acontecer quando o usuário cl
 essa função deve estar definida no código JavaScript associado à página
 
 
-*/ 
+*/
